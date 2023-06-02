@@ -1,16 +1,14 @@
 function rand(min, max, shold = 0.5) {
   const totalOptions = max - min + 1;
   const randomValue = Math.random();
-
+  console.log(randomValue, shold);
   if (randomValue < shold) {
-    return Math.floor(randomValue * (totalOptions / 2)) + min;
+    const range = Math.floor(totalOptions / 2);
+    return Math.floor(randomValue * range) + min;
   } else {
-    return (
-      Math.floor(randomValue * (totalOptions / 2)) +
-      Math.ceil(totalOptions / 2) +
-      min -
-      1
-    );
+    const range = Math.ceil(totalOptions / 2);
+    return Math.floor(randomValue * range) + max - range + 1;
   }
 }
+
 module.exports = rand;

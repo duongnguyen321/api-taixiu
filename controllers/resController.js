@@ -1,6 +1,6 @@
 const path = require("path");
 const dataFilePath = path.join(__dirname, "../data/data.json");
-const {rand, readDataFile, writeDataFile } = require("../helpers");
+const { rand, readDataFile, writeDataFile } = require("../helpers");
 
 module.exports = {
   async index(req, res) {
@@ -11,8 +11,6 @@ module.exports = {
       });
     }
     const parsedNumber = parseInt(number);
-    let response = 0;
-    const data = [];
 
     try {
       const dataObject = await readDataFile(dataFilePath);
@@ -25,9 +23,11 @@ module.exports = {
       ).length;
       const total = taiCount + xiuCount;
       const currentRatio = total > 0 ? taiCount / total : 0;
-
+      console.log(currentRatio);
       // Điều chỉnh threshold dựa trên tỷ lệ hiện tại
-      const threshold = currentRatio > 0.5 ? 0.5 + (currentRatio - 0.5) : 0.5;
+      const threshold = currentRatio + 0.5;
+      const data = [];
+      let response = 0;
 
       for (let i = 1; i <= parsedNumber; i++) {
         const random = rand(1, 6, threshold);
@@ -38,8 +38,24 @@ module.exports = {
       const result = {
         response,
         data,
-        type: response % 2 === 0 ? "Tài" : "Xỉu",
+        type: "",
       };
+
+      if (data.every((value) => value === data[0])) {
+        result.type = "Bộ";
+      } else if (
+        response >= parsedNumber + 1 &&
+        response <= parsedNumber * parsedNumber + 1
+      ) {
+        result.type = "Xỉu";
+      } else if (
+        response >= parsedNumber * parsedNumber + 2 &&
+        response <= parsedNumber * (parsedNumber * 2) - 1
+      ) {
+        result.type = "Tài";
+      } else {
+        result.type = "Đặc biệt";
+      }
 
       dataObject.data.push(result);
 
