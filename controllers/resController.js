@@ -23,9 +23,8 @@ module.exports = {
       ).length;
       const total = taiCount + xiuCount;
       const currentRatio = total > 0 ? taiCount / total : 0;
-      console.log(currentRatio);
       // Điều chỉnh threshold dựa trên tỷ lệ hiện tại
-      const threshold = currentRatio + 0.5;
+      const threshold = currentRatio - 0.1;
       const data = [];
       let response = 0;
 
