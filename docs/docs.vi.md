@@ -1,4 +1,3 @@
-
 # Vietnamese
 
 ## Tài liệu API
@@ -9,7 +8,7 @@ Tài liệu này cung cấp chi tiết về các điểm cuối và cách sử d
 
 ## URL Gốc
 
-https://apitaixiu.herokuapp.com
+https://6fst7q-3001.csb.app
 
 ## Các Điểm Cuối
 
