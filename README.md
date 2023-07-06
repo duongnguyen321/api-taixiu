@@ -8,7 +8,7 @@ This documentation provides details on the endpoints and usage of the API. The A
 
 ## Base URL
 
-    https://apitaixiu.herokuapp.com/
+    https://hsz7vy-3001.csb.app/
 
 ## Endpoints
 
@@ -93,7 +93,7 @@ Tài liệu này cung cấp chi tiết về các điểm cuối và cách sử d
 
 ## URL Gốc
 
-https://apitaixiu.herokuapp.com
+https://hsz7vy-3001.csb.app
 
 ## Các Điểm Cuối
 
